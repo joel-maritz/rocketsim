@@ -7,10 +7,10 @@ class Sim:
         self.speed = 0
         self.altitude = 0
 
-        self.thrust = 2
-        self.gravity = 1
+        self.thrust = 50
+        self.gravity = 9.81
 
-        self.maxSpeed = 10
+        self.maxSpeed = 200
 
     def update(self):
         print('\033c')
@@ -18,7 +18,7 @@ class Sim:
         if self.fuel > 0:
             self.speed += self.thrust
             self.fuel -= self.fuelDecayRate
-            
+
         self.speed -= self.gravity
 
         if self.speed > self.maxSpeed:
@@ -30,9 +30,9 @@ class Sim:
             self.altitude = 0
             self.speed = 0
 
-        print(f'Speed: {self.speed}')
-        print(f'Altitude: {self.altitude}')
-        print(f'Fuel: {self.fuel}')
+        print(f'Speed: {int(self.speed)}')
+        print(f'Altitude: {int(self.altitude)}')
+        print(f'Fuel: {int(self.fuel)}')
         
 sim = Sim()
 
