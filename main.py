@@ -4,10 +4,22 @@ from gui import ControlPanel
 
 def display(sim):
     print('\033c')
-    print(f'Speed: {int(sim.speed)}')
-    print(f'Altitude: {int(sim.altitude)}')
-    print(f'Fuel: {int(sim.fuel)}')
-    print(f"Time: T+{sim.time:.1f}s")
+    print('===============')
+    print(' Mission Stats')
+    print('===============')
+    print()
+    print(f'Engine Status: {'ON' if sim.engine_on else 'OFF'}')
+    print(f'Throttle: {int(sim.throttle*100)}%')
+    print()
+    print(f'Velocity: {int(sim.speed)} m/s')
+    print(f'Altitude: {int(sim.altitude)} m')
+    print(f'Fuel: {int(sim.fuel)} kg')
+    print()
+    print(f"Time: T+{sim.time:.1f} s")
+    print(f'Status: {'ACTIVE' if sim.active else 'LANDED'}')
+    print()
+    print('===============')
+
         
 sim = Simulation()
 gui = ControlPanel(sim)

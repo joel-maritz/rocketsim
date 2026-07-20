@@ -16,7 +16,7 @@ class Simulation:
         if self.engine_on and self.fuel > 0:
             current_thrust = self.maxthrust * self.throttle
             self.speed += current_thrust * dt
-            self.fuel -= self.fuelDecay * dt
+            self.fuel -= self.fuelDecay * dt * self.throttle
         self.speed -= self.gravity * dt
         if self.speed > self.maxSpeed:
             self.speed = self.maxSpeed
